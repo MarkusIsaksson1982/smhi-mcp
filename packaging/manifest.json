@@ -1,0 +1,60 @@
+{
+ "manifest_version": "0.4",
+ "name": "smhi-mcp",
+ "display_name": "SMHI Weather (Sweden)",
+ "version": "0.1.0",
+ "description": "Swedish weather from SMHI open data: forecasts, warnings and station observations. No API key.",
+ "author": {
+  "name": "Markus Isaksson",
+  "url": "https://github.com/MarkusIsaksson1982"
+ },
+ "homepage": "https://github.com/MarkusIsaksson1982/smhi-mcp",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/MarkusIsaksson1982/smhi-mcp"
+ },
+ "license": "MIT",
+ "keywords": [
+  "weather",
+  "sweden",
+  "smhi",
+  "forecast",
+  "warnings"
+ ],
+ "server": {
+  "type": "uv",
+  "entry_point": "src/smhi_mcp/server.py",
+  "mcp_config": {
+   "command": "uv",
+   "args": [
+    "run",
+    "--directory",
+    "${__dirname}",
+    "smhi-mcp"
+   ]
+  }
+ },
+ "tools": [
+  {
+   "name": "get_forecast",
+   "description": "Hourly SMHI forecast for a point"
+  },
+  {
+   "name": "get_warnings",
+   "description": "Active SMHI weather warnings"
+  },
+  {
+   "name": "find_nearest_station",
+   "description": "Nearest SMHI observation station"
+  },
+  {
+   "name": "get_observation",
+   "description": "Latest-hour station observation"
+  }
+ ],
+ "compatibility": {
+  "runtimes": {
+   "python": ">=3.10"
+  }
+ }
+}
